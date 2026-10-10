@@ -1,0 +1,6 @@
+# 把 packages/ 下直接子目录中的包纳入工作空间
+packages:
+  - 'packages/*'
+
+allowBuilds:
+  esbuild: true

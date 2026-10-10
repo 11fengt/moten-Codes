@@ -1,0 +1,16 @@
+{
+  "name": "learn-moten",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "scripts": {
+    "dev": "pnpm --filter @learn-moten/editor run dev",
+    "dev:preview": "pnpm --filter @learn-moten/preview run dev",
+    "dev:server": "pnpm --filter @learn-moten/server run dev",
+    "type-check": "pnpm -r --if-present run type-check",
+    "build": "pnpm -r --if-present run build"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  }
+}

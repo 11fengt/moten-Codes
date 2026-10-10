@@ -1,0 +1,21 @@
+{
+    "name": "@learn-moten/server",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "node --env-file=.env --import tsx --watch src/index.js",
+        "start": "node --env-file=.env --import tsx src/index.js",
+        "init:user": "node --env-file=.env scripts/init-user.js",
+        "test:auth": "node --import tsx --test tests/page-auth.test.js"
+    },
+    "dependencies": {
+        "@learn-moten/materials": "workspace:*",
+        "cors": "^2.8.6",
+        "express": "^4.22.3",
+        "express-rate-limit": "^8.7.1",
+        "jsonwebtoken": "^9.0.3",
+        "mysql2": "^3.24.5",
+        "tsx": "^4.23.15"
+    }
+}

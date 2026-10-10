@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "pageName": "Moten Codes 欢迎页",
+  "content": {
+    "block": [
+      {
+        "id": "welcome-title",
+        "code": "text",
+        "name": "文本",
+        "icon": "text",
+        "formData": {
+          "text": {
+            "desktop": "Hello, Moten Codes",
+            "mobile": "Hello, Moten"
+          },
+          "fontSize": {
+            "desktop": 32,
+            "mobile": 28
+          },
+          "color": {
+            "desktop": "#1f2329",
+            "mobile": "#1f2329"
+          }
+        }
+      },
+      {
+        "id": "welcome-space",
+        "code": "blank",
+        "name": "留白",
+        "icon": "blank",
+        "formData": {
+          "height": {
+            "desktop": 24,
+            "mobile": 16
+          }
+        }
+      },
+      {
+        "id": "welcome-image",
+        "code": "image",
+        "name": "图片",
+        "icon": "image",
+        "formData": {
+          "src": {
+            "desktop": "/images/logo.svg",
+            "mobile": "/images/logo.svg"
+          },
+          "width": {
+            "desktop": "180px",
+            "mobile": "120px"
+          },
+          "height": {
+            "desktop": "180px",
+            "mobile": "120px"
+          }
+        }
+      },
+      {
+        "id": "welcome-description",
+        "code": "text",
+        "name": "文本",
+        "icon": "text",
+        "formData": {
+          "text": {
+            "desktop": "拖拽搭建页面，以 JSON 保存结构，复用物料完成双端预览。",
+            "mobile": "拖拽搭建页面，以 JSON 保存结构，复用物料完成双端预览。"
+          },
+          "fontSize": {
+            "desktop": 20,
+            "mobile": 16
+          },
+          "color": {
+            "desktop": "#1f2329",
+            "mobile": "#1f2329"
+          }
+        }
+      },
+      {
+        "id": "welcome-columns",
+        "code": "column",
+        "name": "双列布局",
+        "icon": "column",
+        "formData": {},
+        "nested": true,
+        "children": [
+          [
+            {
+              "id": "column-left",
+              "code": "text",
+              "name": "文本",
+              "icon": "text",
+              "formData": {
+                "text": {
+                  "desktop": "共享文档模型",
+                  "mobile": "共享文档模型"
+                },
+                "fontSize": {
+                  "desktop": 22,
+                  "mobile": 18
+                },
+                "color": {
+                  "desktop": "#1f2329",
+                  "mobile": "#1f2329"
+                }
+              }
+            }
+          ],
+          [
+            {
+              "id": "column-right",
+              "code": "text",
+              "name": "文本",
+              "icon": "text",
+              "formData": {
+                "text": {
+                  "desktop": "独立预览应用",
+                  "mobile": "独立预览应用"
+                },
+                "fontSize": {
+                  "desktop": 22,
+                  "mobile": 18
+                },
+                "color": {
+                  "desktop": "#1f2329",
+                  "mobile": "#1f2329"
+                }
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "welcome-highlight",
+        "code": "highlight",
+        "name": "高亮块",
+        "icon": "highlight",
+        "formData": {
+          "text": {
+            "desktop": "试试切换视口：同一组件树可以拥有两套属性。",
+            "mobile": "试试切换视口：同一组件树可以拥有两套属性。"
+          },
+          "fontSize": {
+            "desktop": 18,
+            "mobile": 16
+          },
+          "color": {
+            "desktop": "#1f2329",
+            "mobile": "#1f2329"
+          },
+          "background": {
+            "desktop": "#ecf5ff",
+            "mobile": "#ecf5ff"
+          },
+          "borderColor": {
+            "desktop": "#409eff",
+            "mobile": "#409eff"
+          }
+        }
+      },
+      {
+        "id": "welcome-link",
+        "code": "button",
+        "name": "按钮／链接",
+        "icon": "button",
+        "formData": {
+          "text": {
+            "desktop": "查看 GitHub 仓库",
+            "mobile": "查看 GitHub 仓库"
+          },
+          "href": {
+            "desktop": "https://github.com/11fengt/moten-Codes",
+            "mobile": "https://github.com/11fengt/moten-Codes"
+          },
+          "fontSize": {
+            "desktop": 16,
+            "mobile": 14
+          },
+          "color": {
+            "desktop": "#ffffff",
+            "mobile": "#ffffff"
+          }
+        }
+      }
+    ],
+    "page": {
+      "background": {
+        "desktop": "#ffffff",
+        "mobile": "#f8fafc"
+      }
+    }
+  }
+}

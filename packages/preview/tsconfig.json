@@ -1,0 +1,14 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "noUncheckedIndexedAccess": true,
+    "types": ["vite/client"]
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.vue",
+    "../materials/src/**/*",
+    "../materials/src/**/*.vue"
+  ]
+}

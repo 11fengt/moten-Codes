@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #409eff;
+  --color-bg: #f5f6f7;
+  --color-border: #dee0e3;
+  --color-text: #1f2329;
+  --edit-header-height: 64px;
+  --border-radius: 6px;
+  --el-border-radius-base: var(--border-radius);
+
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
