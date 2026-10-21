@@ -1,0 +1,72 @@
+name: moten-codes
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Run bash deploy/setup.sh first}
+      MYSQL_DATABASE: moten_codes
+      MYSQL_USER: moten_app
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Run bash deploy/setup.sh first}
+    command:
+      - --innodb-buffer-pool-size=128M
+      - --max-connections=30
+      - --performance-schema=OFF
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./packages/server/sql/init.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, 'MYSQL_PWD="$${MYSQL_PASSWORD}" mysql --protocol=TCP -h 127.0.0.1 -u "$${MYSQL_USER}" "$${MYSQL_DATABASE}" -e "SELECT id FROM users LIMIT 0; SELECT id FROM pages LIMIT 0;" >/dev/null 2>&1']
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    logging: *logging
+
+  server:
+    build:
+      context: .
+      target: server
+    restart: unless-stopped
+    init: true
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USER: moten_app
+      DB_PASSWORD: ${MYSQL_PASSWORD:?Run bash deploy/setup.sh first}
+      DB_NAME: moten_codes
+      JWT_SECRET: ${JWT_SECRET:?Run bash deploy/setup.sh first}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:8082/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    logging: *logging
+
+  web:
+    build:
+      context: .
+      target: web
+    restart: unless-stopped
+    ports:
+      - "${HTTP_BIND:-127.0.0.1}:${HTTP_PORT:-8080}:80"
+    depends_on:
+      server:
+        condition: service_healthy
+    logging: *logging
+
+volumes:
+  mysql_data:

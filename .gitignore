@@ -43,3 +43,6 @@ __screenshots__/
 .env.*
 !.env.example
 .pnpm-store/
+
+# Server database backups
+moten-backup-*.sql

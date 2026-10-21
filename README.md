@@ -454,6 +454,8 @@ pnpm --filter @learn-moten/server test:auth
 
 ## 部署说明与当前边界
 
+仓库提供 [Docker Compose 部署步骤](docs/DEPLOY.md)，适用于单台 Ubuntu 云服务器演示。配置包括 Nginx 静态页面与 API 代理、Node.js 后端、MySQL 持久化、健康检查和随机密钥初始化。默认只监听服务器本机，先验收再配置公网入口与 HTTPS。云端容器构建和真实数据库联调仍需在目标服务器验证。
+
 编辑器静态产物可交给静态服务器，但需要配置 Vue Router history 的 SPA 回退，并将 `/api` 反向代理到 Express。Vite 开发代理不会自动带入生产静态文件。后端在设置好本机 `.env` 和数据库后可使用：
 
 ```bash
@@ -465,7 +467,7 @@ pnpm --filter @learn-moten/server start
 - 页面归属字段与用户级授权，避免登录用户之间共享所有页面。
 - 草稿 / 发布状态、公开预览路由、发布记录与版本历史。
 - Refresh Token、服务端撤销机制和更完整的账号管理。
-- 统一 JSON 错误处理、部署环境 CORS 配置及反向代理配置。
+- 统一 JSON 错误处理、部署环境 CORS 配置，以及公网入口的域名与 HTTPS。
 - 独立图片存储，避免大量 Data URL 占用 JSON / localStorage。
 - 真实 MySQL 集成测试、文档协议测试与浏览器交互测试。
 
